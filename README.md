@@ -127,7 +127,7 @@ var prefixe = require('gulp-autoprefixer');
   $ gulp css
 ```
 
- ➤ `Sass compiler` : sing <b>(gulp-sass)</b> plugin<br>
+ ➤ `Sass compiler` : using <b>(gulp-sass)</b> plugin<br>
        - link : (https://www.npmjs.com/package/gulp-sass).<br>
        - Install : $ npm install sass gulp-sass --save-dev or npm i sass gulp-sass --save-dev<br>
        - Usage EX:
@@ -144,6 +144,53 @@ var sass = require('gulp-sass');
   });
   # Going to the Comand Line:
   $ gulp css
+```
+
+ ➤ `Pug compiler` : to run a webserver using <b>(static-server)</b> plugin<br>
+       - link : (https://www.npmjs.com/package/gulp-pug).<br>
+       - Install : $ npm install gulp-pug  or  npm i gulp-pug <br>
+       - Usage EX:
+       
+```mark
+var gulp = require('gulp');
+var pug = require('gulp-pug');
+  gulp.task('html' , function(){
+    return gulp.src('project/index.pug')
+    .pipe(pug({pretty: true}))
+    .pipe(gulp.dest('dist'))
+  });
+  # Going to the Comand Line:
+  $ gulp html
+```
+
+ ➤ `local server` : sing <b>(gulp-pug)</b> plugin<br>
+       - EXample plugins: (gulp-webserver , gulp-connect , gulp-live-server , static-server , gulp-serve)
+  The most used and the best plugin from my opinion (gulp-connect) run a webserver (with LiveReload) <br>
+       - link : (https://www.npmjs.com/package/static-server).<br>
+       - Install : $ npm install static-server  or  npm i static-server <br>
+       - Make file in the root project name (server.js)
+       - Put the below code in (server.js) file
+       - Usage EX:
+       
+```mark
+var StaticServer = require('static-server');
+var server = new StaticServer({
+    rootPath: '.',            // required, the root of the server file tree
+    port: 1337,               // required, the port to listen
+    name: 'my-http-server',   // optional, will set "X-Powered-by" HTTP header
+    host: '10.0.0.100',       // optional, defaults to any interface
+    cors: '*',                // optional, defaults to undefined
+    followSymlink: true,      // optional, defaults to a 404 error
+    templates: {
+      index: 'foo.html',      // optional, defaults to 'index.html'
+      notFound: '404.html'    // optional, defaults to undefined
+    }
+  });
+  server.start(function () {
+    console.log('Server listening to', server.port);
+  });
+  # Going to the Comand Line:
+  $ node server.js or inside task gulp put the code ( require('./server.js'); )
 ```
 
     
