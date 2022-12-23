@@ -79,12 +79,12 @@ var gulp = require('gulp');
   //write the first task
   gulp.task('task name' , function(){});
 
-# Run go to comand line :
+# Going to the Comand Line:
 $ gulp (task name)
 ```
 
 
-## ➤ Main Functions in gulp js task
+## :rocket: Main Functions in gulp js task
  * Retrieve file : <b> src </b>('file path/') -> [detrmine files names using obj],file name,*.file exitntion, *.*
  * Apply plugins : <b>pipe</b>('plugin to make somthing')
  * Send files to client : <b>gulp.dest</b>('dist') -> all files from complies for client
@@ -93,20 +93,57 @@ $ gulp (task name)
 
 ## :video_game: Scripts & Plugins
  ➤ `Concatenation Plugin` : concat files in one file using <b> (gulp-concat) </b> plugin<br>
-       - link :(https://www.npmjs.com/package/gulp-concat).<br>
-	     - Install : $ npm install --save-dev gulp-concat or npm i --save-dev gulp-concat.<br>
-	     - Usage EX:<br>
+       - link : (https://www.npmjs.com/package/gulp-concat).<br>
+       - Install : $ npm install --save-dev gulp-concat or npm i --save-dev gulp-concat.<br>
+       - Usage EX:
        
-```json
-  var gulp = require('gulp');
-  var concat = require('gulp-concat');
+```mark
+var gulp = require('gulp');
+var concat = require('gulp-concat');
   gulp.task('task name' , function(){
     return gulp.src('files')
     .pipe(concat('file name concat.ext'))
     .pipe(gulp.dest('dist'))
   });
+  # Going to the Comand Line:
+  $ gulp (task name) 
+```
 
-  # Run go to comand line :
-  $ gulp (task name)
- ```
+ ➤ `AutoPrefixer for css3 properties` : Prefix CSS with <b> Autoprefixer </b>plugin<br>
+       - link : (https://www.npmjs.com/package/gulp-autoprefixer).<br>
+       - Install : $ npm install --save-dev gulp-autoprefixer or npm i --save-dev gulp-autoprefixer<br>
+       - Usage EX:
+       
+```mark
+var gulp = require('gulp');
+var prefixe = require('gulp-autoprefixer');
+  gulp.task('css' , function(){
+    return gulp.src('project/*.css')
+    .pipe(prefixe('last 2 versions'))
+    .pipe(concat('style.css'))
+    .pipe(gulp.dest('dist'))
+  });
+  # Going to the Comand Line:
+  $ gulp css
+```
+
+ ➤ `Sass compiler` : sing <b>(gulp-sass)</b> plugin<br>
+       - link : (https://www.npmjs.com/package/gulp-sass).<br>
+       - Install : $ npm install sass gulp-sass --save-dev or npm i sass gulp-sass --save-dev<br>
+       - Usage EX:
+       
+```mark
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+  gulp.task('css' , function(){
+    return gulp.src('project/css/*.scss')
+    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(prefixe('last 2 versions'))
+    .pipe(concat('style.css'))
+    .pipe(gulp.dest('dist/css'))
+  });
+  # Going to the Comand Line:
+  $ gulp css
+```
+
     
