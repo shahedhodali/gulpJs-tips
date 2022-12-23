@@ -68,3 +68,45 @@ $ gulp --version   or gulp -v
 # Note : Create folder inside project (name folder)->(dist)
 
 ```
+
+## :white_check_mark: Requirements ##
+Before starting, gulpfile Js must be created
+- create a file named -> (gulpfile.js) in your project root with these contents
+### Usage EX
+
+```markdown
+var gulp = require('gulp');
+  //write the first task
+  gulp.task('task name' , function(){});
+
+# Run go to comand line :
+$ gulp (task name)
+```
+
+
+## ➤ Main Functions in gulp js task
+ * Retrieve file : <b> src </b>('file path/') -> [detrmine files names using obj],file name,*.file exitntion, *.*
+ * Apply plugins : <b>pipe</b>('plugin to make somthing')
+ * Send files to client : <b>gulp.dest</b>('dist') -> all files from complies for client
+
+
+
+## :video_game: Scripts & Plugins
+ ➤ `Concatenation Plugin` : concat files in one file using <b> (gulp-concat) </b> plugin<br>
+       - link :(https://www.npmjs.com/package/gulp-concat).<br>
+	     - Install : $ npm install --save-dev gulp-concat or npm i --save-dev gulp-concat.<br>
+	     - Usage EX:<br>
+       
+```json
+  var gulp = require('gulp');
+  var concat = require('gulp-concat');
+  gulp.task('task name' , function(){
+    return gulp.src('files')
+    .pipe(concat('file name concat.ext'))
+    .pipe(gulp.dest('dist'))
+  });
+
+  # Run go to comand line :
+  $ gulp (task name)
+ ```
+    
