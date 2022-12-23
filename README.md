@@ -168,8 +168,8 @@ var pug = require('gulp-pug');
   The most used and the best plugin from my opinion (gulp-connect) run a webserver (with LiveReload) <br>
        - link : (https://www.npmjs.com/package/static-server).<br>
        - Install : $ npm install static-server  or  npm i static-server <br>
-       - Make file in the root project name (server.js)
-       - Put the below code in (server.js) file
+       - Make file in the root project name (server.js)<br>
+       - Put the below code in (server.js) file<br>
        - Usage EX:
        
 ```mark
