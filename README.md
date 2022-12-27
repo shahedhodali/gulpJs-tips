@@ -95,7 +95,7 @@ $ gulp (task name)
  ➤ `Concatenation Plugin` : concat files in one file using <b> (gulp-concat) </b> plugin<br>
        - link : (https://www.npmjs.com/package/gulp-concat).<br>
        - Install : $ npm install --save-dev gulp-concat or npm i --save-dev gulp-concat.<br>
-       - Usage EX:
+       - <b>Usage EX </b>:
        
 ```mark
 var gulp = require('gulp');
@@ -112,7 +112,7 @@ var concat = require('gulp-concat');
  ➤ `AutoPrefixer for css3 properties` : Prefix CSS with <b> Autoprefixer </b>plugin<br>
        - link : (https://www.npmjs.com/package/gulp-autoprefixer).<br>
        - Install : $ npm install --save-dev gulp-autoprefixer or npm i --save-dev gulp-autoprefixer<br>
-       - Usage EX:
+       - <b>Usage EX </b>:
        
 ```mark
 var gulp = require('gulp');
@@ -130,7 +130,7 @@ var prefixe = require('gulp-autoprefixer');
  ➤ `Sass compiler` : using <b>(gulp-sass)</b> plugin<br>
        - link : (https://www.npmjs.com/package/gulp-sass).<br>
        - Install : $ npm install sass gulp-sass --save-dev or npm i sass gulp-sass --save-dev<br>
-       - Usage EX:
+       - <b>Usage EX </b>:
        
 ```mark
 var gulp = require('gulp');
@@ -149,7 +149,7 @@ var sass = require('gulp-sass');
  ➤ `Pug compiler` : to run a webserver using <b>(static-server)</b> plugin<br>
        - link : (https://www.npmjs.com/package/gulp-pug).<br>
        - Install : $ npm install gulp-pug  or  npm i gulp-pug <br>
-       - Usage EX:
+       - <b>Usage EX </b>:
        
 ```mark
 var gulp = require('gulp');
@@ -170,7 +170,7 @@ var pug = require('gulp-pug');
        - Install : $ npm install static-server  or  npm i static-server <br>
        - Make file in the root project name (server.js)<br>
        - Put the below code in (server.js) file<br>
-       - Usage EX:
+       - <b>Usage EX </b>:
        
 ```mark
 var StaticServer = require('static-server');
@@ -195,7 +195,7 @@ var server = new StaticServer({
 
  ➤ `Wacth Function` : swatching globs and running a task when a change occurs. 
                       Tasks are handled uniformly with the rest of the task system.<br>
-       - Usage EX:
+       - <b>Usage EX </b>:
 
 ```mark
 gulp.task('watch' , function(){
@@ -213,7 +213,7 @@ gulp.task('watch' , function(){
        - link : (https://www.npmjs.com/package/gulp-livereload).<br>
        - Install : $ npm install gulp-livereload or npm i gulp-livereload <br>
        - Apply livereload using exitntion chrome or script in html or pug file (<script src="http://localhost:35729/livereload.js?snipver=1"></script>)
-       - Usage EX:
+       - <b>Usage EX </b>:
 
 ```mark
 var gulp = require('gulp');
@@ -236,7 +236,7 @@ var livereload = require('gulp-livereload');
 ➤ `Gulp source maps` : All plugins between sourcemaps.init() and sourcemaps.write() need to have support for <b>(gulp-sourcemaps)</b> plugin <br>
        - link : (https://www.npmjs.com/package/gulp-sourcemaps).<br>
        - Install : $ npm install gulp-sourcemaps or npm i gulp-sourcemaps <br>
-       - Usage EX:
+      - <b>Usage EX </b>:
 
 ```mark
 var gulp = require('gulp');
@@ -264,7 +264,7 @@ var sourcemaps = require('gulp-sourcemaps');
 ➤ `Gulp uglify` : Minify JavaScript with UglifyJS3 using <b>(gulp-uglify)</b> plugin <br>
        - link : (https://www.npmjs.com/package/gulp-uglify).<br>
        - Install : $ npm install gulp-uglify or npm i gulp-uglify <br>
-       - Usage EX:
+       - <b>Usage EX </b>:
 
  ```mark
 var gulp = require('gulp');
@@ -291,7 +291,7 @@ var uglify = require('gulp-uglify');
 ➤ `Gulp notify` : Send messages to Mac Notification Center, Linux notifications (using notify-send) or Windows >= 8 (using native toaster) or Growl as fallback <br>
        - link : (https://www.npmjs.com/package/gulp-notify).<br>
        - Install : $ npm install gulp-notify or npm i gulp-notify <br>
-       - Usage EX:
+       - <b>Usage EX </b>:
 
  ```mark
   var gulp = require('gulp');
@@ -311,7 +311,7 @@ var uglify = require('gulp-uglify');
 ➤ `Gulp zip` : ZIP compress files <br>
        - link : (https://www.npmjs.com/package/gulp-zip).<br>
        - Install : $ npm install gulp-zip or npm i gulp-zip <br>
-       - Usage EX:
+       - <b>Usage EX </b>:
 
  ```mark
   var gulp = require('gulp');
@@ -339,7 +339,7 @@ var uglify = require('gulp-uglify');
                  Often performs better than your favorite desktop FTP client<br>
        - link : (https://www.npmjs.com/package/vinyl-ftp).<br>
        - Install : $ npm install vinyl-ftp or  npm i vinyl-ftp <br>
-       - Usage EX:
+       - <b>Usage EX </b>:
 
  ```mark
   var gulp = require('gulp');
@@ -376,14 +376,14 @@ gulp.task('watch' , function(){
 ```
 
 ➤ `Exclude Files`: If all files are called and without one file, put [! name file ] in src function<br>
-       - Usage EX:
+       - <b>Usage EX </b>:
 
  ```mark
   $ gulp.src(['project/*.js','!project/two.js']);
 ```
 
-➤ `Setup Default Task`
-       - Usage EX:
+➤ `Setup Default Task`<br/>
+       - <b>Usage EX </b>:
 
  ```mark
  //Default Task
@@ -410,7 +410,7 @@ gulp.task('watch' , function(){
 
  
 ➤ `Install specific Version`:<br>
-    - Usage EX:
+     - <b>Usage EX </b>:
 
 ```mark
  $ npm i gulp(v)
