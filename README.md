@@ -381,5 +381,37 @@ gulp.task('watch' , function(){
  ```mark
   $ gulp.src(['project/*.js','!project/two.js']);
 ```
-       
+
+➤ `Setup Default Task`
+       - Usage EX:
+
+ ```mark
+ //Default Task
+ $ gulp.task('default',['watch']);
+ # Going to the Comand Line:
+ $ gulp watch
+```
+
+➤ `Some Useful Plugins`<br><br>
+   1- `Gulp Babel`: Use next generation JavaScript, today, with Babel<br>
+   link : (https://www.npmjs.com/package/gulp-babel)
+
+   2- `Gulp Replace`: A string replace plugin for gulp<br>
+   link : (https://www.npmjs.com/package/gulp-replace)
+
+   3- `Gulp Load Plugins`: Loads gulp plugins from package dependencies and attaches them to an object of your choice.<br>
+   link : (https://www.npmjs.com/package/gulp-load-plugins)
+
+   4- `Gulp Rename`: is a gulp plugin to rename files easily.<br>
+   link : (https://www.npmjs.com/package/gulp-rename)
+
+   5- `Gulp Plumber`: Prevent pipe breaking caused by errors from gulp plugins<br>
+   link : (https://www.npmjs.com/package/gulp-plumber)
+
  
+➤ `Install specific Version`:<br>
+    - Usage EX:
+
+```mark
+ $ npm i gulp(v)
+```
