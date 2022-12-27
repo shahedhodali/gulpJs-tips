@@ -163,7 +163,7 @@ var pug = require('gulp-pug');
   $ gulp html
 ```
 
- ➤ `local server` : sing <b>(gulp-pug)</b> plugin<br>
+ ➤ `local server` : using <b>(gulp-pug)</b> plugin<br>
        - EXample plugins: (gulp-webserver , gulp-connect , gulp-live-server , static-server , gulp-serve)
   The most used and the best plugin from my opinion (gulp-connect) run a webserver (with LiveReload) <br>
        - link : (https://www.npmjs.com/package/static-server).<br>
@@ -193,4 +193,193 @@ var server = new StaticServer({
   $ node server.js or inside task gulp put the code ( require('./server.js'); )
 ```
 
-    
+ ➤ `Wacth Function` : swatching globs and running a task when a change occurs. 
+                      Tasks are handled uniformly with the rest of the task system.<br>
+       - Usage EX:
+
+```mark
+gulp.task('watch' , function(){
+    require('./server.js');
+  #Single file path
+     gulp.watch('filepath',['task name'])
+  #Multi files
+     gulp.watch('filepath/folder name /**/*.ext',['task name']) 
+  });
+  # Going to the Comand Line:
+  $ gulp watch
+```
+
+ ➤ `Live reload` : will not automatically listen for changes using <b> (gulp-livereload) </b> plugin <br>
+       - link : (https://www.npmjs.com/package/gulp-livereload).<br>
+       - Install : $ npm install gulp-livereload or npm i gulp-livereload <br>
+       - Apply livereload using exitntion chrome or script in html or pug file (<script src="http://localhost:35729/livereload.js?snipver=1"></script>)
+       - Usage EX:
+
+```mark
+var gulp = require('gulp');
+var livereload = require('gulp-livereload');
+  gulp.task('html' , function(){
+    return gulp.src('project/index.pug')
+    .pipe(pug({pretty: true}))
+    .pipe(gulp.dest('dist'))
+    .pipe(livereload());
+  });
+  gulp.task('watch' , function(){
+    require('./server.js');
+    livereload.listen(); //adding in watch task before watch applied
+     gulp.watch('project/index.pug',['html'])
+  });
+  # Going to the Comand Line:
+  $ gulp watch
+```
+
+➤ `Gulp source maps` : All plugins between sourcemaps.init() and sourcemaps.write() need to have support for <b>(gulp-sourcemaps)</b> plugin <br>
+       - link : (https://www.npmjs.com/package/gulp-sourcemaps).<br>
+       - Install : $ npm install gulp-sourcemaps or npm i gulp-sourcemaps <br>
+       - Usage EX:
+
+```mark
+var gulp = require('gulp');
+var sourcemaps = require('gulp-sourcemaps');
+  //pipe(sourcemaps.init()) -> after gulp.src
+  //pipe(sourcemaps.write())-> after tasks and packges before gulp.dest
+
+  gulp.task('html' , function(){
+    return gulp.src('project/index.pug')
+    .pipe(sourcemaps.init())
+    .pipe(pug({pretty: true}))
+    .pipe(sourcemaps.write('.')) // '.' apply this file beside the same file source mapping
+    .pipe(gulp.dest('dist'))
+    .pipe(livereload());
+  });
+  gulp.task('watch' , function(){
+    require('./server.js');
+    livereload.listen(); //adding in watch task before watch applied
+     gulp.watch('project/index.pug',['html']);
+  });
+  # Going to the Comand Line:
+  $ gulp watch
+```
+
+➤ `Gulp uglify` : Minify JavaScript with UglifyJS3 using <b>(gulp-uglify)</b> plugin <br>
+       - link : (https://www.npmjs.com/package/gulp-uglify).<br>
+       - Install : $ npm install gulp-uglify or npm i gulp-uglify <br>
+       - Usage EX:
+
+ ```mark
+var gulp = require('gulp');
+var uglify = require('gulp-uglify');
+
+ gulp.task('js' , function(){
+    return gulp.src('project/js/*.js')
+    .pipe(concat('main.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('dist/js'))
+    .pipe(livereload());
+ });
+ # call script (<script src="js/main.js"></script>) inside file html
+ gulp.task('watch' , function(){
+    require('./server.js');
+    livereload.listen(); //adding in watch task before watch applied
+    gulp.watch('project/index.pug',['html']);
+    gulp.watch('project/js/*.js',['js']);
+ });
+  # Going to the Comand Line:
+  $ gulp watch
+```
+
+➤ `Gulp notify` : Send messages to Mac Notification Center, Linux notifications (using notify-send) or Windows >= 8 (using native toaster) or Growl as fallback <br>
+       - link : (https://www.npmjs.com/package/gulp-notify).<br>
+       - Install : $ npm install gulp-notify or npm i gulp-notify <br>
+       - Usage EX:
+
+ ```mark
+  var gulp = require('gulp');
+  var notify = require('gulp-notify');
+
+  gulp.task('html' , function(){
+    return gulp.src('project/index.pug')
+    .pipe(pug())
+    .pipe(gulp.dest('dist'))
+    .pipe(notify('Html task is Done'))
+    .pipe(livereload());
+  });
+  # Going to the Comand Line:
+  $ gulp watch
+```
+
+➤ `Gulp zip` : ZIP compress files <br>
+       - link : (https://www.npmjs.com/package/gulp-zip).<br>
+       - Install : $ npm install gulp-zip or npm i gulp-zip <br>
+       - Usage EX:
+
+ ```mark
+  var gulp = require('gulp');
+  var notify = require('gulp-notify');
+  var zip = require('gulp-zip');
+
+  gulp.task('compress' , function(){
+    return gulp.src('dist/**/*.*')
+    .pipe(zip('design.zip'))
+	  .pipe(gulp.dest('.'))
+    .pipe(notify('Files is Compressed'))
+  });
+  gulp.task('watch' , function(){
+    require('./server.js');
+    livereload.listen();
+    gulp.watch('project/index.pug',['html']);
+    gulp.watch('project/js/*.js',['js']);
+    gulp.watch('dist/**/*.*',['compress']);
+   });
+  # Going to the Comand Line:
+  $ gulp watch
+```
+
+➤ `Vinyl ftp` : Supports parallel transfers, conditional transfers, buffered or streamed files, and more.
+                 Often performs better than your favorite desktop FTP client<br>
+       - link : (https://www.npmjs.com/package/vinyl-ftp).<br>
+       - Install : $ npm install vinyl-ftp or  npm i vinyl-ftp <br>
+       - Usage EX:
+
+ ```mark
+  var gulp = require('gulp');
+  var ftp = require( 'vinyl-ftp' );
+
+//Uplode design with FTP
+ gulp.task( 'deploy', function () {
+ 
+    var conn = ftp.create({
+        host:     'test.net',
+        user:     'me',
+        password: 'mypass',
+        parallel: 10
+    });
+ 
+    // using base = '.' will transfer everything to /public_html correctly
+    // turn off buffering in gulp.src for best performance
+ 
+    return gulp.src( ['dist/**/*.*'], { base: '.', buffer: false } )
+        .pipe( conn.newer( '/public_html' ) ) // only upload newer files
+        .pipe( conn.dest( '/public_html' ) )
+        .pipe(livereload());
+});
+gulp.task('watch' , function(){
+    require('./server.js');
+    livereload.listen();
+    gulp.watch('project/index.pug',['html']);
+    gulp.watch('project/js/*.js',['js']);
+    gulp.watch('dist/**/*.*',['compress']);
+    gulp.watch('dist/**/*.*',['deploy']);
+ });
+  # Going to the Comand Line:
+  $ gulp watch
+```
+
+➤ `Exclude Files`: If all files are called and without one file, put [! name file ] in src function<br>
+       - Usage EX:
+
+ ```mark
+  $ gulp.src(['project/*.js','!project/two.js']);
+```
+       
+ 
