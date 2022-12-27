@@ -212,8 +212,8 @@ gulp.task('watch' , function(){
  ➤ `Live reload` : will not automatically listen for changes using <b> (gulp-livereload) </b> plugin <br>
        - link : (https://www.npmjs.com/package/gulp-livereload).<br>
        - Install : $ npm install gulp-livereload or npm i gulp-livereload <br>
-       - Apply livereload using exitntion chrome or script in html or pug file (<script src="http://localhost:35729/livereload.js?snipver=1"></script>)
-       - <b>Usage EX </b>:
+       - Apply livereload using exitntion chrome or script in html or pug file (<script src="http://localhost:35729/livereload.js?snipver=1"></script>)<br>
+       - <b>Usage EX </b>:<br>
 
 ```mark
 var gulp = require('gulp');
